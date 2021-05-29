@@ -1,15 +1,15 @@
-import React,{ Component } from "react";
+import { Component } from "react";
 
 class ShowClass extends Component {
   render() {
-    const elementClass = this.props.onRecevieData.map((item,index)=>{
-      return(
-        <tr key={index}>
-          <td>{index}</td>
+    const elementClass = this.props.onRecevieData.map((item, index) => {
+      return (
+        <tr key={++index}>
+          <td>{++index}</td>
           <td>{item.nameClass}</td>
-          <td>{item.isActive}</td>
-          <td>{item.scheduleClass}</td>
           <td>{item.amountMember}</td>
+          <td>fake</td>
+          <td>{item.isActive}</td>
           <td className="text-center">
             <span className="label label-success">Đang giảng dạy</span>
           </td>
@@ -19,14 +19,20 @@ class ShowClass extends Component {
               Xóa
             </button>
           </td>
-      </tr>
-      )
-      })
+        </tr>
+      );
+    });
     return (
       <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
         <div className="row mt-15">
-          <h3 className="text-center">Danh Sách Lớp Học</h3>
+          <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <button type="button" class="btn btn-default">
+              Thêm học sinh
+            </button>
+          </div>
+
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3 className="text-center">Danh Sách Lớp Học</h3>
             <table className="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -38,9 +44,7 @@ class ShowClass extends Component {
                   <th className="text-center">Trạng thái</th>
                 </tr>
               </thead>
-              <tbody>
-                {elementClass}
-              </tbody>
+              <tbody>{elementClass}</tbody>
             </table>
           </div>
         </div>
@@ -48,4 +52,4 @@ class ShowClass extends Component {
     );
   }
 }
-export default ShowClass
+export default ShowClass;
