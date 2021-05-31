@@ -1,28 +1,24 @@
 import React, { Component } from "react";
-import AddClass from "./component/AddClass.jsx";
-import ShowClass from "./component/ShowClass.jsx";
-
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import { Room } from "./pages/ActionManger/Room";
+import {routes} from "../src/routers"
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataID: [],
-    };
+  showContent(routes) {
+    var result = null;
+    if (routes.length > 0) {
+      var result = routes.map((route) => {
+        return (
+          <Route path={route.path} exact={route.exact} component={route.main} />
+        );
+      });
+    }
+    return result;
   }
-  onRecevie = (prams) => {
-    const dataID = this.state.dataID;
-    dataID.push(prams);
-    this.setState(dataID);
-    console.log(this.state.dataID);
-  };
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <AddClass />
-          <ShowClass onRecevieData={[1,2,3,4]} />
-          </div>
-      </div>
+      <Router>
+        {this.showContent(routes)}
+      </Router>
     );
   }
 }

@@ -1,7 +1,27 @@
 import { Component } from "react";
 
 class ShowClass extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isActive: true,
+    };
+    this.activeAddclass = this.activeAddclass.bind(this);
+  }
+  activeAddclass() {
+    if (this.state.isActive === true) {
+      this.setState({
+        isActive: false,
+      });
+    } else {
+      this.setState({
+        isActive: true,
+      });
+    }
+    //console.log(this.state.isActive)
+  }
   render() {
+    //const isActiveadd = this.state.activeAddclass
     const elementClass = this.props.onRecevieData.map((item, index) => {
       return (
         <tr key={++index}>
@@ -26,7 +46,11 @@ class ShowClass extends Component {
       <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
         <div className="row mt-15">
           <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <button type="button" class="btn btn-default">
+            <button
+              onClick={this.activeAddclass}
+              type="button"
+              className="btn btn-default"
+            >
               Thêm học sinh
             </button>
           </div>
