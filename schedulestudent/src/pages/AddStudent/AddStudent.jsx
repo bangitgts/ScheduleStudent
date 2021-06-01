@@ -71,6 +71,7 @@ class AddStudent extends React.Component {
                   type="text"
                   name="nameStudent"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <div className="form-group">
@@ -89,6 +90,7 @@ class AddStudent extends React.Component {
                   type="number"
                   name="phoneNumber"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <div className="form-group">
@@ -98,6 +100,7 @@ class AddStudent extends React.Component {
                   type="text"
                   name="userName"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <div className="form-group">
@@ -107,6 +110,7 @@ class AddStudent extends React.Component {
                   type="password"
                   name="passWord"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <label>Đăng Ký Khóa Học</label>

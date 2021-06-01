@@ -68,6 +68,7 @@ class AddCourse extends React.Component {
                   type="text"
                   name="nameCourse"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <label>Lịch học</label>

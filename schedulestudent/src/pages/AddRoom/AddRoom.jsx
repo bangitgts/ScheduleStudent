@@ -62,6 +62,7 @@ class AddRoom extends React.Component {
                   type="text"
                   name="nameRoom"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <label>Sức chứa</label>

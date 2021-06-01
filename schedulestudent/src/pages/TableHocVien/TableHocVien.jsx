@@ -25,7 +25,7 @@ class TableHocVien extends React.Component {
                 <div className="card shadow mb-4">
                   <div className="card-header py-3">
                     <h6 className="m-0 font-weight-bold text-primary">
-                    Thông Tin Các Lớp Học
+                    Thông Tin Các Học Viên
                     </h6>
                   </div>
                   <div className="card-body">
@@ -38,12 +38,12 @@ class TableHocVien extends React.Component {
                       >
                         <thead>
                           <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Tên</th>
+                            <th>Năm Sinh</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Khóa học đăng kí</th>
                           </tr>
                         </thead>
                         <tfoot>
