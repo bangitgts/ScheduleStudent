@@ -41,6 +41,10 @@ class TableCourse extends React.Component {
           <td>{data.nameCourse}</td>
           <td>{data.schedule}</td>
           <td>{data.during}</td>
+          <td>{data.daDangki}</td>
+          <td>
+          <span class="label label-danger">Đang giảng dạy</span>
+          </td>
         </tr>
       );
     });
@@ -79,6 +83,8 @@ class TableCourse extends React.Component {
                             <th>Tên Khóa Học</th>
                             <th>Lịch Học</th>
                             <th>Thời gian học</th>
+                            <th>Học viên đăng kí</th>
+                            <th>Trạng thái</th>
                           </tr>
                         </thead>
                         <tbody>{duLieu}</tbody>

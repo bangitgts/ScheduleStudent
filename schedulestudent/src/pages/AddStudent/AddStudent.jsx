@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-const-assign */
 import React from "react";
 var axios = require("axios");
 var qs = require("qs");
@@ -12,9 +14,51 @@ class AddStudent extends React.Component {
       userName: "",
       passWord: "",
       khoaHoc: "",
+      fetchCourse: [],
     };
     this.onSubmitForm = this.onSubmitForm.bind(this);
     this.onGetclass = this.onGetclass.bind(this);
+  }
+
+  getAPI() {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3500/add-course", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        this.setState({
+          fetchCourse: result,
+        });
+      })
+      .catch((error) => console.log("error", error));
+  }
+  componentDidMount() {
+    this.getAPI();
+  }
+  changeDangky() {
+    const { fetchCourse } = this.state;
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("nameCourse", this.state.khoaHoc);
+    urlencoded.append("daDangki", "asask");
+
+    var requestOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3500/change-dadangki", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   }
   onSubmitForm(event) {
     var data = qs.stringify({
@@ -24,7 +68,6 @@ class AddStudent extends React.Component {
       userName: this.state.userName,
       passWord: this.state.passWord,
       khoaHoc: this.state.khoaHoc,
-
     });
     var config = {
       method: "post",
@@ -42,6 +85,9 @@ class AddStudent extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+
+    this.changeDangky();
+
     event.preventDefault();
   }
   onHandel(event) {
@@ -56,6 +102,10 @@ class AddStudent extends React.Component {
     });
   }
   render() {
+    const { fetchCourse } = this.state;
+    let nameCourse = fetchCourse.map((data) => {
+      return <option value={data.nameCourse}>{data.nameCourse}</option>;
+    });
     return (
       <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <div className="panel panel-danger">
@@ -120,8 +170,9 @@ class AddStudent extends React.Component {
                 className="form-control"
                 required="required"
               >
-                <option value="Khóa 1">Khóa 1</option>
-                <option value="Khóa 2">Khóa 2</option>
+                {/* <option value="Khóa 1">Khóa 1</option>
+                <option value="Khóa 2">Khóa 2</option> */}
+                {nameCourse}
               </select>
               <br></br>
 

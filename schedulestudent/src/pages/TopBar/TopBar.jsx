@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 class TopBar extends React.Component {
@@ -45,7 +46,7 @@ class TopBar extends React.Component {
             >
               <i className="fas fa-search fa-fw" />
             </a>
-            {/* Dropdown - Messages */}
+        
             <div
               className="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
               aria-labelledby="searchDropdown"

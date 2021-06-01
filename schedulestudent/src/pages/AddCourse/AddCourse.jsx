@@ -5,9 +5,9 @@ class AddCourse extends React.Component {
     super(props);
     this.state = {
       nameCourse: "",
-      schedule: "",
-      during: "",
-      isActive: false, // khai giang hay chua
+      schedule: "2 Tuần",
+      during: "2-4-6",
+      amount: "", // khai giang hay chua
     };
     this.onSubmitForm = this.onSubmitForm.bind(this);
     this.onGetclass = this.onGetclass.bind(this);
@@ -19,7 +19,7 @@ class AddCourse extends React.Component {
       nameCourse: this.state.nameCourse,
       schedule: this.state.schedule,
       during: this.state.during,
-      isActive: this.state.isActive,
+      amount: this.state.amount
     });
     var config = {
       method: "post",
@@ -34,6 +34,7 @@ class AddCourse extends React.Component {
       .then(function (response) {
        // console.log(JSON.stringify(response.data));
         alert(JSON.stringify(response.data))
+        alert(response.data)
       })
       .catch(function (error) {
         console.log(error);
@@ -71,6 +72,16 @@ class AddCourse extends React.Component {
                   required="required"
                 />
               </div>
+              <div className="form-group">
+                <label>Số lượng học viên</label>
+                <input
+                  onChange={this.onGetclass}
+                  type="number"
+                  name="amount"
+                  className="form-control"
+                  required="required"
+                />
+              </div>
               <label>Lịch học</label>
               <select
                 onChange={this.onGetclass}
@@ -78,21 +89,20 @@ class AddCourse extends React.Component {
                 className="form-control"
                 required="required"
               >
-                <option value="1">Thứ 2 - 4 - 6 </option>
-                <option value="2">Thứ 3 - 5 - 7</option>
-                <option value="3">Full Tuần</option>
+                <option value="2-4-6">2 - 4 - 6</option>
+                <option value="3-5-7">3 - 5 - 7</option>
+                <option value="Full">Full</option>
               </select>
 
-              <label>Thời gian học</label>
+              <label>Thời gian học trong:</label>
               <select
                 onChange={this.onGetclass}
                 name="during"
                 className="form-control"
                 required="required"
               >
-                <option value="1">Trong 2 Tuần</option>
-                <option value="2">Trong 3 Tuần</option>
-                <option value="3">Trong 4 Tuần</option>
+                <option value="2 Tuần">2 Tuần</option>
+                <option value="3 Tuần">3 Tuần</option>
               </select>
               <br></br>
               <div className="text-center">

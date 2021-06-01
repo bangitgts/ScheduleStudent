@@ -1,26 +1,20 @@
-var axios = require('axios');
-var qs = require('qs');
-var data = qs.stringify({
-    'nameStudent': '12',
-    'dateBirth': '06-06-2000',
-    'userName': 'bang1212popo12',
-    'passWord': 'test1',
-    'khoaHoc': 'test1',
-    'phoneNumber': '00383828'
-});
-var config = {
-    method: 'post',
-    url: 'http://localhost:3500/add-student',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data: data
-};
+//const lop = [15, 16, 20, 25, 29, 40];
+const lop = [15, 16];
 
-axios(config)
-    .then(function(response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function(error) {
-        console.log(error);
-    });
+const thu2 = [];
+const thu3 = [];
+const thu4 = [];
+const thu5 = [];
+const thu6 = [];
+const thu7 = [];
+const chunhat = [];
+const CO1 = 30;
+let aCO1 = [];
+const CO2 = 20;
+let aCO2 = [];
+const CO3 = 40;
+let aCO3 = [];
+
+
+
+const phong = [CO1, CO2, CO3];

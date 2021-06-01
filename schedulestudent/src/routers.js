@@ -35,5 +35,9 @@ const routes = [{
         exact: false,
         main: () => < TableCourse / >
     },
+    {
+        path: "/",
+        exact: false
+    },
 ];
 export { routes };
