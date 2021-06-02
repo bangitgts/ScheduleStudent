@@ -1,31 +1,34 @@
-const cousres = [20, 30, 40];
-const room = ["C20", "C20", "C30", "C40"];
-
 const courses20 = [{
         khoa: "CSDL1",
+        thu: "chan"
+    },
+
+    {
+        khoa: "CSDL2",
         thu: "le"
+    },
+
+    {
+        khoa: "CSDL2",
+        thu: "chan"
     },
     {
         khoa: "CSDL1",
-        thu: "chan"
-    },
-
-    {
-        khoa: "CSDL2",
         thu: "le"
     },
-
     {
-        khoa: "CSDL2",
+        khoa: "CSDL3",
         thu: "chan"
     },
-
 ];
+const course30 = [
 
+
+]
 const room20 = [{
         id: "PO1chan",
         thu: "chan",
-        lop: [1],
+        lop: [],
     },
     {
         id: "PO1le",
@@ -43,39 +46,6 @@ const room20 = [{
         lop: [],
     },
 ];
-// for (let item of room20) {
-//     for (let lop of courses20) {
-//         if (lop.thu === item.thu && item.lop.length === 0) {
-//             let a = item.lop.push(lop.khoa);
-//             console.log(a);
-//             break;
-//         }
-//     }
-// if (courses20[0].thu === item.thu && item.lop.length === 0) {
-//     item.lop.push(courses20[0].khoa);
-//     console.log(item)
-//     break;
-// }
-
-
-
-//const alligator = ["thick scales", 80, "4 foot tail", "rounded snout"];
-
-// const b = room20.find(el => el.lop.length === 0); // returns '4 foot tail'
-
-// console.log(b)
-// console.log(room20);
-// for (let item of courses20) {
-//     const b = room20.find(el => el.lop.length === 0);
-//     try {
-//         if (b.length !== 0 && (item.thu === b.thu)) {
-//             b.lop.push(item);
-//         }
-//         console.log(b)
-//     } catch (error) {
-//         console.log("da tran")
-//     }
-// }
 
 function XepLop(room, course) {
     let temp = []
@@ -83,14 +53,19 @@ function XepLop(room, course) {
 
         const b = room.find(el => el.lop.length === 0);
         try {
-            if (b.length !== 0 && (item.thu === b.thu)) {
+            if ((b.length !== 0) && (item.thu === b.thu)) {
                 b.lop.push(item);
                 temp.push(JSON.stringify(b));
+                console.log(item)
             }
         } catch (error) {
-            console.log("da tran")
+            console.log("da tran");
+            console.log(item);
+            course30.push(item) // du lieu con du 
         }
     }
     console.log(temp)
+    console.log(course30)
 }
+
 XepLop(room20, courses20);

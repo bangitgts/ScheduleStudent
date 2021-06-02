@@ -4,10 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Calender } from "./calender";
+import { XepLichHoc } from "./pages/XepLichHoc";
 
 ReactDOM.render(
   <React.StrictMode>
-   <App/>
+    <App/>
+    <XepLichHoc />
   </React.StrictMode>,
   document.getElementById("root")
 );
