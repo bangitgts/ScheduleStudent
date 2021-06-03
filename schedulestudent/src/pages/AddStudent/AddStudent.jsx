@@ -39,6 +39,7 @@ class AddStudent extends React.Component {
     this.getAPI();
   }
   changeDangky() {
+    
     const { fetchCourse } = this.state;
 
     var myHeaders = new Headers();
@@ -87,7 +88,6 @@ class AddStudent extends React.Component {
       });
 
     this.changeDangky();
-
     event.preventDefault();
   }
   onHandel(event) {

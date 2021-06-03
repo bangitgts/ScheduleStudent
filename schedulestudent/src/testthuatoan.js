@@ -13,6 +13,10 @@ const courses20 = [{
         thu: "chan"
     },
     {
+        khoa: "CSDL1a",
+        thu: "le"
+    },
+    {
         khoa: "CSDL1",
         thu: "le"
     },
@@ -21,10 +25,7 @@ const courses20 = [{
         thu: "chan"
     },
 ];
-const course30 = [
 
-
-]
 const room20 = [{
         id: "PO1chan",
         thu: "chan",
@@ -38,7 +39,7 @@ const room20 = [{
     {
         id: "PO2chan",
         thu: "chan",
-        lop: [],
+        lop: ["ASJKASJK"],
     },
     {
         id: "PO2le",
@@ -50,22 +51,21 @@ const room20 = [{
 function XepLop(room, course) {
     let temp = []
     for (let item of course) {
-
         const b = room.find(el => el.lop.length === 0);
+        console.log("day la b" + JSON.stringify(b));
         try {
             if ((b.length !== 0) && (item.thu === b.thu)) {
                 b.lop.push(item);
-                temp.push(JSON.stringify(b));
-                console.log(item)
+                temp.push(b);
             }
         } catch (error) {
             console.log("da tran");
             console.log(item);
-            course30.push(item) // du lieu con du 
         }
     }
-    console.log(temp)
-    console.log(course30)
+    // console.log(temp)
+    // console.log(course30)
+    console.log(temp);
 }
 
 XepLop(room20, courses20);
